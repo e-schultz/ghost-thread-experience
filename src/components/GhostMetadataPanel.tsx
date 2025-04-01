@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { X, FileText, Link, Activity, FileZip } from 'lucide-react';
+import { X, FileText, Link, Activity, Archive } from 'lucide-react';
 import { logData } from '../data/logData';
 
 interface GhostMetadataPanelProps {
@@ -69,7 +69,7 @@ const GhostMetadataPanel: React.FC<GhostMetadataPanelProps> = ({ onClose, select
           <div>
             <div className="text-terminal-darkpink text-xs">Connected Zines</div>
             <div className="flex items-center mt-1">
-              <FileZip className="w-3 h-3 mr-1" />
+              <Archive className="w-3 h-3 mr-1" />
               <span>you-are-the-thread-now</span>
             </div>
           </div>
