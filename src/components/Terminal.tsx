@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import TerminalHeader from './TerminalHeader';
 import EchoReader from './EchoReader';
 import TerminalInput from './TerminalInput';
 import GhostMetadataPanel from './GhostMetadataPanel';
 import ScratchViewer from './ScratchViewer';
+import ThemeToggle from './ThemeToggle';
 import { logData } from '../data/logData';
 
 const Terminal: React.FC = () => {
@@ -79,6 +79,7 @@ Available commands:
     <div className="relative min-h-screen bg-terminal-black text-terminal-pink overflow-hidden p-4">
       <div className="scan-line"></div>
       <div className="crt-effect"></div>
+      <ThemeToggle />
       
       <div className="terminal-window max-w-6xl mx-auto" ref={terminalRef}>
         <TerminalHeader />

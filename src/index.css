@@ -7,7 +7,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  /* GLITCH theme - hot pink max (default) */
+  :root, .theme-glitch {
     --background: 0 0% 0%;
     --foreground: 325 100% 60%;
 
@@ -35,6 +36,90 @@
     --border: 325 50% 40%;
     --input: 325 50% 40%;
     --ring: 325 100% 60%;
+
+    --terminal-black: #000000;
+    --terminal-pink: #ff1493;
+    --terminal-darkpink: #b30e6a;
+    --terminal-gray: #333333;
+    --terminal-lightgray: #555555;
+
+    --radius: 0.25rem;
+  }
+
+  /* DUSK theme - softer magenta + charcoal */
+  .theme-dusk {
+    --background: 240 10% 10%;
+    --foreground: 300 70% 60%;
+
+    --card: 240 10% 15%;
+    --card-foreground: 300 70% 60%;
+
+    --popover: 240 10% 15%;
+    --popover-foreground: 300 70% 60%;
+
+    --primary: 300 70% 60%;
+    --primary-foreground: 240 10% 10%;
+
+    --secondary: 300 40% 40%;
+    --secondary-foreground: 240 10% 15%;
+
+    --muted: 300 30% 30%;
+    --muted-foreground: 300 70% 90%;
+
+    --accent: 300 50% 50%;
+    --accent-foreground: 240 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 300 40% 40%;
+    --input: 300 40% 40%;
+    --ring: 300 70% 60%;
+
+    --terminal-black: #1e1b22;
+    --terminal-pink: #d867d8;
+    --terminal-darkpink: #9a4d9a;
+    --terminal-gray: #403e43;
+    --terminal-lightgray: #5a585e;
+
+    --radius: 0.25rem;
+  }
+
+  /* BONES theme - grayscale ANSI */
+  .theme-bones {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 80%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 80%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 80%;
+
+    --primary: 0 0% 80%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 50%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 30%;
+    --muted-foreground: 0 0% 90%;
+
+    --accent: 0 0% 70%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 50%;
+    --input: 0 0% 50%;
+    --ring: 0 0% 80%;
+
+    --terminal-black: #111111;
+    --terminal-pink: #eeeeee;
+    --terminal-darkpink: #999999;
+    --terminal-gray: #444444;
+    --terminal-lightgray: #666666;
 
     --radius: 0.25rem;
   }
