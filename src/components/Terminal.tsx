@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import TerminalHeader from './TerminalHeader';
 import EchoReader from './EchoReader';
@@ -81,7 +82,7 @@ Available commands:
       <div className="crt-effect"></div>
       <ThemeToggle />
       
-      <div className="terminal-window max-w-6xl mx-auto" ref={terminalRef}>
+      <div className="terminal-window max-w-6xl mx-auto pt-10 md:pt-0" ref={terminalRef}>
         <TerminalHeader />
         
         <div className="flex flex-col md:flex-row gap-4">

@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Zap, Sunset, Skull } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export type Theme = 'glitch' | 'dusk' | 'bones';
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState<Theme>('glitch');
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   
   // Initialize theme from localStorage if available
   useEffect(() => {
@@ -51,7 +53,7 @@ const ThemeToggle = () => {
   };
   
   return (
-    <div className="fixed top-4 right-4 z-50 bg-terminal-black/50 p-1 border border-terminal-pink rounded">
+    <div className={`fixed ${isMobile ? 'bottom-4 right-4' : 'top-4 right-4'} z-50 bg-terminal-black/50 p-1 border border-terminal-pink rounded`}>
       <ToggleGroup type="single" value={theme} onValueChange={handleThemeChange}>
         <ToggleGroupItem value="glitch" aria-label="GLITCH Theme" className="terminal-button">
           <Zap className="w-4 h-4" />
