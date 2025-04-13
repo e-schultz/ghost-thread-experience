@@ -46,5 +46,37 @@ export const logData: LogEntry[] = [
     content: "ID:01 | part 4: how I work\nis kinda captive ergatin\n& resurface later,\nbut what happens if\nanalog?",
     ocrConfidence: 86,
     imagePath: "/lovable-uploads/50184a8f-1f98-4ad7-8da0-02d08a65210a.png",
+  },
+  {
+    id: "06",
+    title: "Part 4: How I work",
+    date: "April 1st - 3:15am",
+    content: "ID:01 | part 4: how I work\nis kinda captive ergatin\n& resurface later,\nbut what happens if\nanalog?",
+    ocrConfidence: 84,
+    imagePath: "/lovable-uploads/67797629-c891-4d22-8f6c-a71e828a3de0.png",
+  },
+  {
+    id: "07",
+    title: "Scrying Table Format",
+    date: "April 1st - 3:30am",
+    content: "ID | DESC.\n01 | Scrying init test\n\nID:01\nso the thought\nhere is I can\norganize my notes,\nfor reference by\nID -> curious to\nsee how FLOAT\nwill parse this",
+    ocrConfidence: 92,
+    imagePath: "/lovable-uploads/d99e6452-c229-4ef7-ae4e-9bd1f3f47398.png",
+  },
+  {
+    id: "08",
+    title: "Ghost-trace first page",
+    date: "April 1st - 2:00am",
+    content: "April 1st - ghost-trace init\n- 2:00am - session closed, pizza.\non, trying a thought ->\npen x paper first, if I\nwant to digitally capture,\ncan AI read my scratch?",
+    ocrConfidence: 94,
+    imagePath: "/lovable-uploads/508e2796-3c8a-4752-8a84-e5b470030f93.png",
+  },
+  {
+    id: "09",
+    title: "Original ghost-trace init",
+    date: "April 1st - 2:00am",
+    content: "April 1st - ghost-trace init\n- 2:00am - session closed, pizza.\non, trying a thought ->\npen x paper first, if I\nwant to digitally capture,\ncan AI read my scratch?",
+    ocrConfidence: 95,
+    imagePath: "/lovable-uploads/65fb72bd-d47f-43d9-bc13-97168b2f48a4.png",
   }
 ];
