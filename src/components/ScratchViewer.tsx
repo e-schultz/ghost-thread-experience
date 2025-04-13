@@ -52,7 +52,7 @@ const ScratchViewer: React.FC<ScratchViewerProps> = ({ logId, onClose }) => {
               Original Scratch
             </div>
             <img 
-              src={`/lovable-uploads/${log.imagePath}`} 
+              src={log.imagePath.includes('/') ? log.imagePath : `/${log.imagePath}`} 
               alt={`Original notebook page for ID:${log.id}`} 
               className="w-full h-full object-contain"
               style={{ opacity: sliderValue / 100 }}
