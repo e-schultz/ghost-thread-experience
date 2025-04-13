@@ -1,26 +1,53 @@
-# Welcome to your Lovable project
 
-## Project info
+# Ghost-Trace: An Interactive Terminal Experience
+
+## Project Overview
+
+Ghost-Trace is an interactive terminal experience that simulates the discovery of handwritten notes that have been digitized. The application features a terminal interface where users can explore and interact with a collection of scanned notebook pages alongside their digitally parsed text.
 
 **URL**: https://lovable.dev/projects/6d3dfe4d-7166-4f6c-9597-fa2325c7c5fa
-s
-## How can I edit this code?
 
-There are several ways of editing your application.
+## Key Features
 
-**Use Lovable**
+- **Terminal Interface**: Authentic terminal-like experience with command-line interactions.
+- **Scratch Viewer**: Interactive viewer that allows users to compare original handwritten notes with their digitally parsed text.
+- **Opacity Slider**: Users can adjust the visibility between the original image and the parsed text.
+- **Responsive Design**: Works across various device sizes.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6d3dfe4d-7166-4f6c-9597-fa2325c7c5fa) and start prompting.
+## Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built with modern web technologies:
 
-**Use your preferred IDE**
+- **React**: For building the user interface
+- **TypeScript**: For type safety and better developer experience
+- **Vite**: As the frontend build tool
+- **Tailwind CSS**: For styling components
+- **shadcn/ui**: For UI components
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- `/src/components`: React components including the Terminal and ScratchViewer
+- `/src/data`: Contains the log data that powers the application
+- `/src/pages`: Page components for routing
+- `/public`: Static assets including the scanned notebook images
 
-Follow these steps:
+## Commands
+
+The terminal interface supports various commands that users can try:
+
+- Try typing `help` to see available commands
+- Use `view [ID]` to open the Scratch Viewer for a specific log
+- Use `list` to see all available logs
+
+## How to Use
+
+### Using Lovable
+
+Simply visit the [Lovable Project](https://lovable.dev/projects/6d3dfe4d-7166-4f6c-9597-fa2325c7c5fa) and start interacting with the terminal interface.
+
+### Local Development
+
+If you want to work locally using your own IDE, follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
@@ -36,37 +63,16 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To deploy this project, use the Lovable platform:
 
-**Use GitHub Codespaces**
+1. Open [Lovable](https://lovable.dev/projects/6d3dfe4d-7166-4f6c-9597-fa2325c7c5fa)
+2. Click on Share -> Publish
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Custom Domain
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/6d3dfe4d-7166-4f6c-9597-fa2325c7c5fa) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
+Yes, you can connect a custom domain to your Lovable project!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
