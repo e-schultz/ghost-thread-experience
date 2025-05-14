@@ -7,12 +7,14 @@ import GhostMetadataPanel from './GhostMetadataPanel';
 import ScratchViewer from './ScratchViewer';
 import ThemeToggle from './ThemeToggle';
 import { logData } from '../data/logData';
+import BridgeViewer from './BridgeViewer';
 
 const Terminal: React.FC = () => {
   const [inputHistory, setInputHistory] = useState<string[]>([]);
   const [commandOutput, setCommandOutput] = useState<string>('');
   const [showMetadataPanel, setShowMetadataPanel] = useState<boolean>(false);
   const [showScratchViewer, setShowScratchViewer] = useState<boolean>(false);
+  const [showBridgeViewer, setShowBridgeViewer] = useState<boolean>(false);
   const [selectedLogId, setSelectedLogId] = useState<string | null>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   
@@ -50,18 +52,51 @@ const Terminal: React.FC = () => {
     } else if (command.trim().toLowerCase().startsWith('floatctl parse-id')) {
       const idMatch = command.match(/parse-id\s+(\d+)/);
       const id = idMatch ? idMatch[1] : null;
+      
+      // Also check for cb- prefix
+      const cbMatch = command.match(/parse-id\s+(cb-\d+)/i);
+      const cbId = cbMatch ? cbMatch[1] : null;
+      
       if (id) {
         output = `[output] FLOAT tracking ID:${id} as active analog echo`;
         setSelectedLogId(id);
+      } else if (cbId) {
+        output = `[output] FLOAT tracking Bridge:${cbId} as active continuity bridge`;
+        setSelectedLogId(cbId);
       } else {
-        output = '[error] Invalid ID format. Usage: floatctl parse-id <number>';
+        output = '[error] Invalid ID format. Usage: floatctl parse-id <number> or floatctl parse-id <cb-number>';
       }
+    } else if (command.trim().toLowerCase().startsWith('bridge-view')) {
+      const idMatch = command.match(/bridge-view\s+(cb-\d+)/i);
+      const id = idMatch ? idMatch[1] : null;
+      
+      if (id) {
+        const bridgeLog = logData.find(log => log.id === id && log.bridgeData);
+        if (bridgeLog) {
+          output = `[output] Opening continuity bridge viewer for ${id}`;
+          setSelectedLogId(id);
+          setShowBridgeViewer(true);
+        } else {
+          output = `[error] No continuity bridge found with ID: ${id}`;
+        }
+      } else {
+        output = '[error] Invalid ID format. Usage: bridge-view <cb-number>';
+      }
+    } else if (command.trim().toLowerCase() === 'list-bridges') {
+      const bridgeLogs = logData.filter(log => log.bridgeData);
+      output = "Available continuity bridges:\n\n" + 
+        bridgeLogs.map(log => 
+          `ID:${log.id} | ${log.title} | ${log.date}`
+        ).join('\n');
     } else if (command.trim() === 'help') {
       output = `
 Available commands:
 - cat ghost-trace-01: View full ghost trace content
 - whisper.sh: Activate whisper echo mode
 - floatctl parse-id <number>: Track specific analog echo
+- floatctl parse-id <cb-number>: Track specific continuity bridge
+- list-bridges: Show all available continuity bridges
+- bridge-view <cb-number>: Open the continuity bridge viewer
 - help: Show this help message
       `;
     } else if (command.trim()) {
@@ -76,6 +111,13 @@ Available commands:
     setShowScratchViewer(true);
   };
   
+  const handleOpenBridgeViewer = (id: string) => {
+    if (id.startsWith('cb-')) {
+      setSelectedLogId(id);
+      setShowBridgeViewer(true);
+    }
+  };
+  
   return (
     <div className="relative min-h-screen bg-terminal-black text-terminal-pink overflow-hidden p-4">
       <div className="scan-line"></div>
@@ -87,7 +129,11 @@ Available commands:
         
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
-            <EchoReader logs={logData} onViewOriginal={handleOpenScratchViewer} />
+            <EchoReader 
+              logs={logData} 
+              onViewOriginal={handleOpenScratchViewer}
+              onViewBridge={handleOpenBridgeViewer} 
+            />
             
             {commandOutput && (
               <div className="mt-4 p-2 border border-terminal-pink rounded bg-black/50 terminal-content">
@@ -111,6 +157,13 @@ Available commands:
         <ScratchViewer
           logId={selectedLogId}
           onClose={() => setShowScratchViewer(false)}
+        />
+      )}
+      
+      {showBridgeViewer && selectedLogId && (
+        <BridgeViewer
+          logId={selectedLogId}
+          onClose={() => setShowBridgeViewer(false)}
         />
       )}
     </div>
