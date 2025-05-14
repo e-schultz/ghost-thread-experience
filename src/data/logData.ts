@@ -290,7 +290,9 @@ export const logData: LogEntry[] = [
 
 // Add continuity bridges as log entries
 continuityBridges.forEach((bridge, index) => {
-  const threadNames = bridge.section_data.active_threads.map(thread => thread.name).join(", ");
+  const threadNames = bridge.section_data
+    ? bridge.section_data.active_threads.map(thread => thread.name).join(", ")
+    : bridge.metadata.active_threads;
   
   logData.push({
     id: `cb-${index + 1}`,

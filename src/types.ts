@@ -23,8 +23,9 @@ export interface ContinuityBridge {
     mode: string;
     ctx_markers: string;
     timestamp: string;
+    anchor_id?: string;
   };
-  section_data: {
+  section_data?: {
     session_context: {
       date: string;
       timestamp_markers: string[];
