@@ -1,0 +1,7 @@
+{
+  "projectName": "ghost-thread-experience",
+  "subdomain": "ghost-thread-experience",
+  "framework": "vite",
+  "buildCommand": "npx vite build",
+  "outputDirectory": "dist"
+}
